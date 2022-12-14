@@ -27,7 +27,6 @@ public class BasePage {
         }
         return element;
     }
-
     protected void typeIn(By locator, String text) {
         WebElement element = getElement(locator);
         element.clear();
@@ -46,6 +45,8 @@ public class BasePage {
                 .click()
                 .perform();
     }
+
+
 
     protected void clickOnElement(By locator) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -68,7 +69,7 @@ public class BasePage {
 
     protected boolean matchExpectedText(By locator, String expectedText) {
         WebElement element = getElement(locator);
-        if (element.equals(expectedText)) {
+        if (element.getText().trim().equals(expectedText)) {
             System.out.println("Passed");
             return true;
         } else {
@@ -76,6 +77,8 @@ public class BasePage {
         }
         return false;
     }
-
-
+    private void getTextFromElement(By locator, String bannerText){
+        WebElement element = getElement(locator);
+        bannerText = element.getText().trim();
+    }
 }

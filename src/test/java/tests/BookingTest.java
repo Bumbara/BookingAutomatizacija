@@ -1,20 +1,16 @@
 package tests;
 
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.BookingPage;
 import pages.SearchPage;
 
 public class BookingTest extends BaseTest{
 
-    SearchPage search;
-
-    @BeforeMethod
-    public void localSetup() {
-        search = new SearchPage(driver);
-    }
-
     @Test
-    public void searhPageTest(){
-        search.searchPageConditions();
+    public void searchPageTest() throws InterruptedException {
+        SearchPage searchPage = new SearchPage(driver);
+        searchPage.searchDestination().selectDate().decreasePassengersAmount().clickSearch().verifyBookingPge();
+        BookingPage bookingPage = new BookingPage(driver);
+        bookingPage.checkBreakfastIncluded().randomChoice();
     }
 }
