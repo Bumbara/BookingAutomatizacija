@@ -11,6 +11,6 @@ public class BookingTest extends BaseTest{
         SearchPage searchPage = new SearchPage(driver);
         searchPage.searchDestination().selectDate().decreasePassengersAmount().clickSearch().verifyBookingPge();
         BookingPage bookingPage = new BookingPage(driver);
-        bookingPage.checkBreakfastIncluded().randomChoice();
+        bookingPage.checkBreakfastIncluded();
     }
 }

@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Random;
 
 public class BasePage {
 
@@ -77,8 +79,14 @@ public class BasePage {
         }
         return false;
     }
-    private void getTextFromElement(By locator, String bannerText){
-        WebElement element = getElement(locator);
-        bannerText = element.getText().trim();
+    public String getTextFromElement(By locator){
+        return driver.findElement(locator).getText();
     }
+
+//    protected WebElement findRandomElement(By locator) {
+//        Random random = new Random();
+//        List<WebElement> list = driver.findElements(locator);
+//        int randomElement = random.nextInt(list.size());
+//        return list.get(randomElement);
+//    }
 }
