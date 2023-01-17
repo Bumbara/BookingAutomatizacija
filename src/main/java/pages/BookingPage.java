@@ -28,8 +28,9 @@ public class BookingPage extends BasePage{
     public boolean bookingPageOpened() {
         return matchExpectedText(verificationText, "Filter by:");
     }
-    public void verifyBookingPge() {
+    public BookingPage verifyBookingPge() {
         Assert.isTrue(bookingPageOpened(), "Cannot open Booking page!");
+        return this;
     }
 
     public BookingPage checkBreakfastIncluded() throws InterruptedException {
